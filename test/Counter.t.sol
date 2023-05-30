@@ -21,4 +21,11 @@ contract CounterTest is Test {
         counter.setNumber(x);
         assertEq(counter.number(), x);
     }
+
+    /// forge-config: default.invariant.depth = 1
+    /// forge-config: default.invariant.runs = 1
+    function invariant_randomTest() public {
+        counter.setNumber(1);
+        assertEq(counter.number(), 1);
+    }
 }
